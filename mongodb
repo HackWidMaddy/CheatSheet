@@ -1,0 +1,162 @@
+Mongo database                          Relational database
+database                            |database
+-> collections                      |->tables
+-> documents (bson)                 |->rows 
+-> columns                          |->fields
+
+
+collection multiple documents
+documents
+{
+    name:'Hello',   <- field:value
+    age = 26
+}
+
+
+Commands
+
+-> View all database
+show dbs
+show databases
+
+
+-> create a new database or shift to the existing database 
+use database-name
+
+
+-> To know which databse you are using
+db
+
+-> Delete a database
+db.dropDatabase()
+
+
+-> To show all the collections
+show collections
+
+
+-> To create a new collection
+ db.createCollection('comments')
+
+
+ -> To delete a collection
+ db.content.drop()
+
+
+ Mongodb commands for rows
+
+
+ insert 1 row
+db.comments.insert({
+    'name':'madhav',
+    'age':25
+})
+
+
+insert many rows
+db.comments.insertMany([{
+   'name':'madhav',
+    'age':25  
+}],[{ 'name':'madhav',
+    'age':25}],[{ 'name':'madhav',
+    'age':25}])
+
+
+show all rows in a collection
+db.comments.find()
+or 
+db.comments.find().pretty()
+
+
+ db.comments.insert({1:'Two','two':'fifteen','date':new Date()})
+
+
+ search in a mongo db database
+ db.comments.find({'name':'madhav'})
+
+
+ limiting
+db.comments.find().limit(1)
+
+counting the number of rows in output
+db.comments.find().count()
+
+sorting
+Ascending-> db.comments.find().sort({name:1})
+Descending->  db.comments.find().sort({name:-1})
+
+
+findOne function
+db.comments.findOne({age:25})
+
+editing a field/row
+
+db.comments.update({name:'madhav'},{
+    'name':'Thango',
+    'age':27,
+    'date': new Date()
+})
+
+
+db.comments.update({ name: 'madhav' }, { $set: { name: 'Thango', age: 55 }});
+
+
+
+update operator 
+
+Name
+	
+Description
+$currentDate
+	
+Sets the value of a field to current date, either as a Date or a Timestamp.
+$inc
+	
+Increments the value of the field by the specified amount.
+$min
+	
+Only updates the field if the specified value is less than the existing field value.
+$max
+	
+Only updates the field if the specified value is greater than the existing field value.
+$mul
+	
+Multiplies the value of the field by the specified amount.
+$rename
+	
+Renames a field.
+$set
+	
+Sets the value of a field in a document.
+$setOnInsert
+	
+Sets the value of a field if an update results in an insert of a document. Has no effect on update operations that modify existing documents.
+$unset
+	
+Removes the specified field from a document.
+
+
+
+
+
+deleting row
+
+db.comments.remove({name:'Madhav'})
+
+
+
+fileters
+
+less then
+db.comments.find({member_since:{$lt:19}})
+
+less then equal to
+db.comments.find({member_since:{$lte:19}})
+
+greater than
+less then
+db.comments.find({member_since:{$gt:19}})
+
+
+greater then equals
+db.comments.find({member_since:{$gte:19}})

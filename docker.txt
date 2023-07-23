@@ -1,0 +1,45 @@
+virtulization means dividing hardware among the os 
+
+
+and in docker we divide os to handle other os
+
+docker has continers in which we can instsall os
+
+container crazy fast light weight computes
+
+in container are isolated 
+
+
+
+
+Docker comands
+Download OS-
+docker pull centos
+
+
+to run the container
+	switches	name	   name of os
+docker run -d -t --name mycontainer centos
+
+to show all the docker container
+docker ps
+
+
+to work with that os
+docker exec -it mycontainer bash
+
+
+
+
+enable us to work with different versions of an os
+docker pull centos:frenchpress
+
+
+
+docker run -t -d -p 80:80 --name ncoffee nameofconatiner:frenchpress
+
+
+
+docker stop nameofcontainer
+
+docker stats nameofconatiner

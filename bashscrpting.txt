@@ -1,0 +1,244 @@
+BASH - Bourne Again Shell discovered in 1989 its programming/scripting language
+
+#! - Shibang
+
+which is used to tell which programming language are we using python,bash,
+
+Sleep in bash:
+sleep 2
+
+
+variables in bash
+
+name = 'chuck'
+
+to use variable
+echo 'Hello $name'
+
+
+To take input
+read variable-name
+read name
+
+
+To get argument
+name=$1
+echo "hello $name"
+run script as ./script name
+
+More positional argumants use $2
+
+
+To store output of a command and store in variable use
+date = $(date)
+
+
+
+RANDOM IN LINUX
+echo $RANDOM
+0-32767
+
+
+all built in variables
+$pwd
+$RANDOM
+$hostname
+$USER
+
+
+
+We can also create system variable by just typing this in shell
+eg:
+twitter='Elon Must'
+echo $twitter
+
+But this variables cannot be used in our bash script
+to make variables usable in bash script we create environment variables
+
+
+To make environment variable
+export twitter
+simple as that
+
+
+But this variable is not permanenet to make it permanenet we use make changes in bashrc
+
+
+To do math in bash
+
+bash do not give answer in float
+echo $(( 2 * 3))
+first opening bracket is its a bash and second opening is that its a arithmetic equeatoin
+
+
+Conditionals in bash
+
+if[[ $variablename == "Yes" ]]; then
+	echo "something"
+else
+	echo "something"
+fi
+
+
+
+if[[ $variablename == "Yes" || $variablename == "someothergame" ]]; then
+	echo "something"
+else
+	echo "something"
+fi
+
+
+
+
+
+
+
+
+if[[ $variablename == "Yes" && $variablename == "someothergame" ]]; then
+	echo "something"
+else
+	echo "something"
+fi
+
+
+Nested If  
+
+
+if [[ $number == $demonchoice || $number == "coffee" ]]; then
+        if [[ $USER == "root" ]]; then
+                echo "Beast disappear"
+        fi
+else
+        echo "You lose"
+fi
+
+
+Elif in bash
+
+
+
+if [[ $number == $demonchoice || $number == "coffee" ]]; then
+        echo "bEAST GAYAB"
+elif [[ $USER == "greencat" ]]; then
+        echo "Benard is always win"
+else
+        echo "yOU died"
+fi
+
+
+
+case in bash 
+
+read number
+
+case $number in
+        1)
+                echo "You are samosa 1"
+                ;;
+        2)
+                echo "You are samosa 2"
+                ;;
+        3)
+                echo "You are samosa 3"
+                ;;
+esac
+
+
+
+loops in bash 
+
+while loop
+x = 1
+while [[ $x -le 10 ]]
+do
+	(( x ++ ))
+done
+
+
+(( x ++ )) is used to increment  
+
+
+
+while [[ $x -le 100 ]]
+do
+  echo "I just did $x pushup"
+  (( x ++ ))
+done
+
+
+read a file
+
+
+x=1
+
+while read -r line; do
+echo "Line $x $line"
+(( x ++ ))
+done < notes.txt
+
+
+
+ping domain
+
+#!/bin/bash
+
+for domain in google.com facebook.com bing.com instagram.com 192.168.45.128;
+do
+        if ping -c 2 -W 1 $domain > /dev/null ; then
+                echo "$domain is up"
+        else
+                echo "$domain is down"
+        fi
+done
+
+
+
+
+
+
+
+
+
+
+until loop
+
+until [[ $order == "coffee" ]]
+do
+        echo "WHat u want tea or coffee"
+        read order
+done
+
+
+
+for loop in bash
+
+
+#!/bin/bash
+
+for cups in 1 2 3 4 5 6 7 8 9 10;
+do
+        echo "You have $cups of coffe today"
+done
+
+
+cups will be assigned number form array one by one 
+
+
+range in for loop
+
+for cups in {1..10};
+do
+        echo "You have $cups of coffe today"
+done
+
+
+
+for x in $(cat cities.txt);
+do
+	whether=$(curl -s http://wttr.in/$x?format=3)
+	echo "The whether is $whether"
+done 
+
+
+
+break and continue

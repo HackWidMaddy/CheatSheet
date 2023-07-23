@@ -1,0 +1,92 @@
+shahmadhav29@gmail.com
+Madhav1010@
+GreennCat
+
+
+
+GitCommands
+
+Config Username and Email
+git config --global user.name GreennCat
+git config --global user.email shahmadhav29@gmail.com
+To check if username and email is done
+git config --global user.email
+git config --global user.name
+
+
+To Initize
+git init
+To getall hidden commands
+ls -lart
+
+
+
+ git add index.html
+to add a file
+
+
+
+
+
+
+
+kiran@DESKTOP-ST2RS7K MINGW64 ~/mygithub (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+
+
+git commit
+to commit changes
+
+
+you will enter vim then enter
+Initial commit
+To exit vim
+press esc type   :wq and enter
+
+
+
+To moving more than 1 file 
+git add -A
+
+
+To avoid vim 
+git commit -m "Added more htmls"
+
+
+to previous commit
+git checkout about.html
+
+
+for all files
+git checkout -f
+
+
+git log
+to check all the logs
+
+
+to directly commit withput staging 
+git commit -a -m "message"
+
+
+
+ git rm --cached waste.html
+
+
+
+
+git merge feature
+
+
+
+
+
+
