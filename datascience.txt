@@ -1,0 +1,297 @@
+Data Science
+
+jupyter notebook
+Numpy - numeric python
+munpy is written in c
+
+
+array in numpy
+np.array([2,3,2,4,2,3])
+ar = np.arange(1000000)
+
+import numpy as np
+ar = np.array([1,3,4,5])
+print(type(ar))
+<class 'numpy.ndarray'> - numpy dimentional 
+
+
+
+array of array in numpy
+import numpy as np
+ar = np.array([[1,3,4,5],[1,2,3,4]])
+print(ar)
+
+numpy attributes
+ar.shape ---> give rows and cols in arrya
+ar.dtype ---> data type
+ar = np.array([[1,3,4,5],[1,2,3,4]],dtype='int32')
+
+
+blank arrays
+np.zeros(4) -- numbers of zeros rows
+np.zeros((4,6)) -- rows and columns  ------- always value is 0
+np.empty(3) ------ can be 0 or garbage value
+
+
+
+ar*ar -- does not do array multiplication it does this element by element
+
+
+slicing
+in numpy array slicing is creating a view change in  view reflects to original array
+e.g
+arr1 = np.array([1,2,3,4])
+arr2 = arr1[1:]
+arr2[0] = 5
+arr1 ========= 1 5 3 4 
+
+the above problem does not arrise if
+arr1 = np.array([1,2,3,4])
+arr2 = arr1[1:].copy()
+arr2[0] = 5
+arr1 ========= 1 5 3 4 
+
+
+-----------------------------------------------------------------------------------
+Numpy axes, sorting & others methods 
+
+numpy has 2 axis axis 0 and axis 1
+axes 0 = column wise
+
+
+
+dot product
+
+ar1.dot(ar2.transpose()) ---> transpose and dot product
+
+
+cross product
+
+np.cross(ar1,ar2)
+
+sorting
+ae = np.array([42,62,624,2334,53,1])
+np.sort(ae)
+array([   1,   42,   53,   62,  624, 2334])
+
+
+ a = np.array([[7,8,9],
+                [4,5,6]])
+
+np.sort(a,axis=0)
+
+
+to use particular soring algo in numpy
+
+%%time 
+np.sort(a,axis=0,kind='heapsort')
+
+
+-------------------------------------------------------------------------------------
+
+numpy arange argsort and other
+
+
+a = np.arange(6) ---- numpy array data type
+
+
+
+b = np.array([1,3,4,3,2,4,34,34,34,3,43,43,4,34,3,46,4,64,323,2,54,7,68,8,786,4,433,3,36,5,86,342,4,468,7,4])
+b = b.reshape(6,6)
+
+reshapes the matrix 
+array([[  1,   3,   4,   3,   2,   4],
+       [ 34,  34,  34,   3,  43,  43],
+       [  4,  34,   3,  46,   4,  64],
+       [323,   2,  54,   7,  68,   8],
+       [786,   4, 433,   3,  36,   5],
+       [ 86, 342,   4, 468,   7,   4]])
+
+
+
+
+np.argsort(b) ------gives indexes which are to be sort
+b = np.array([1,3,4,3,2,4,34,34,34,3,43.5,43,4,34,3,46,4,64,323,2,54,7,68,8,786,4,433,3,36,5,86,342,4,468,7,4])
+np.argsort(b)
+The below are the indexes
+array([ 0,  4, 19,  1,  3, 27,  9, 14, 32, 25, 16, 12, 35,  2,  5, 29, 34,
+       21, 23, 13,  8,  7,  6, 28, 11, 10, 15, 20, 17, 22, 30, 18, 31, 26,
+       33, 24], dtype=int64)
+
+
+
+np.argmin(b) gives you value at the 0th index
+np.argmax(b) gives you value at maximujm index
+
+
+You can do same thing with multi dimentional array
+
+
+--------------------------------------------------------------------------------
+Pandas
+--------------------------------------------------------------------------------
+dataframe is excel in ram
+
+
+Pandas data analysis
+
+To create empty data frame
+df = pd.DataFrame()
+to create a data frame
+df1 = pd.DataFrame([[1,2,3,4],[3,4,5,6],[64,3,4,3],[3,5,64,3]])
+output:
+ 	0 	1 	2 	3
+0 	1 	2 	3 	4
+1 	3 	4 	5 	6
+2 	64 	3 	4 	3
+3 	3 	5 	64 	3
+
+
+
+
+
+to view some data
+df1.head(2)
+df1.tail(2)
+
+
+
+Slicing and adding coumn to a dataframe
+
+df1.shape
+
+
+df1.iloc[0,1]
+	 |  |
+	row column
+
+df1.iloc[2:4,2:4]
+
+original:
+ 	0 	1 	2 	3
+0 	1 	2 	3 	4
+1 	3 	4 	5 	6
+2 	64 	3 	4 	3
+3 	3 	5 	64 	3
+
+
+output:
+ 	2 	3
+2 	4 	3
+3 	64 	3
+
+
+
+Custom name of columns in dataframe
+
+df = pd.DataFrame([[1,3,4,5],[3,5,7,4],[5,3,4,5],[4,3,2,4],[4,3,5,6]],columns=['s','2','d','dd'])
+
+
+------------------------------------------------------------------------------
+Reading CSV file in pandas						     |
+------------------------------------------------------------------------------
+
+df = pd.read_csv('tatatest.csv')
+
+print(df['Date'].dtype)
+print(df['Open'])
+
+
+Writing to csv
+
+
+df1.to_csv('export.csv')
+df1.to_csv('export.csv',index=False)
+
+
+
+Merging of dataframe
+
+
+
+
+pd.merge(dfr1,dfr2,right_on='Y',left_on='B')
+
+
+
+json javascript object notation
+
+
+import json
+json_data = '{"a":1,"b":2,"c":3}'
+x = json.loads(json_data)
+x['b']
+
+
+with open('2.json','w') as f:
+	json.dump(x,f)
+
+
+
+Matplotlib
+
+
+
+%matplotlib inline
+from matplotlib import pyplot as plt
+plt.plot([1,2,3],[10,20,50])
+plt.show()
+
+
+
+
+%matplotlib inline
+from matplotlib import pyplot as plt
+plt.plot([1,2,3],[10,20,50])
+plt.title("Har data's")
+plt.ylabel('this is y')
+plt.xlabel('this is X')
+plt.show()
+
+
+
+
+%matplotlib inline
+from matplotlib import pyplot as plt
+x = [1,2,3]
+y = [10,20,30]
+x1 = [22,11,12]
+y1 = [25,21,43]
+plt.plot(x,y)
+plt.plot(x1,y1)
+plt.show()
+
+
+
+
+
+style in matplotlib
+%matplotlib inline
+from matplotlib import style
+from matplotlib import pyplot as plt
+style.use('ggplot')
+x = [1,2,3]
+y = [10,20,30]
+x1 = [22,11,12]
+y1 = [25,21,43]
+plt.plot(x,y)
+plt.plot(x1,y1)
+plt.show()
+
+
+
+%matplotlib inline
+from matplotlib import style
+from matplotlib import pyplot as plt
+style.use('ggplot')
+x = [1,2,3]
+y = [10,20,30]
+x1 = [22,11,12]
+y1 = [25,21,43]
+plt.scatter(x,y,label="first",linewidth=5)
+plt.plot(x,y,label="first",linewidth=5)
+plt.plot(x1,y1,label="second")
+plt.legend()
+plt.show()
+	
+
